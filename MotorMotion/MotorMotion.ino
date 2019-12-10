@@ -1,22 +1,18 @@
 //Left side of Motors
-const int EnableL1 = 5; 
-//const int EnableL2 = 10;
+const int EnL = 5; 
 const int HighL = 7;
 const int LowL = 11;
 
 //Right side of Motors
-const int EnableR1 = 6;
-//const int EnableR2 = 4;
+const int EnR = 6;
 const int HighR = 9;
 const int LowR = 8;
 
 void setup() {
-  pinMode(EnableL1, OUTPUT);
+  pinMode(EnL, OUTPUT);
   pinMode(HighL, OUTPUT);
   pinMode(LowL, OUTPUT);
-  pinMode(EnableR1, OUTPUT);
-  //pinMode(EnableR2, OUTPUT);
-  //pinMode(EnableL2, OUTPUT);
+  pinMode(EnR, OUTPUT);
   pinMode(HighR, OUTPUT);
   pinMode(LowR, OUTPUT);
 }
@@ -27,10 +23,9 @@ void Forward(){
   digitalWrite(LowL, HIGH);
   digitalWrite(HighR, HIGH);
   digitalWrite(LowR, LOW);
-  analogWrite(EnableL1, 255);
-  //analogWrite(EnableL2, 255);
-  analogWrite(EnableR1, 255);
-  //analogWrite(EnableR2, 255);
+  analogWrite(EnL, 255);
+  analogWrite(EnR, 255);
+
 }
 
 //Backward 
@@ -39,10 +34,9 @@ void Backward(){
   digitalWrite(LowL, LOW);
   digitalWrite(HighR, LOW);
   digitalWrite(LowR, HIGH);
-  analogWrite(EnableL1, 255);
-  //analogWrite(EnableL2, 255);
-  analogWrite(EnableR1, 255);
-  //analogWrite(EnableR2, 255);
+  analogWrite(EnL, 255);
+  analogWrite(EnR, 255);
+
 }
 
 //Left
@@ -52,39 +46,88 @@ void Left(){
   digitalWrite(LowL, HIGH);
   digitalWrite(HighR, HIGH);
   digitalWrite(LowR, LOW);
-  analogWrite(EnableL1,255);
-  //analogWrite(EnableL2, 255);
-  analogWrite(EnableR1, 10);
-  //analogWrite(EnableR2, 165);
+  analogWrite(EnL,255);
+  analogWrite(EnR, 10);
+
 }
 void Right(){
   digitalWrite(HighL, HIGH);
   digitalWrite(LowL, LOW);
   digitalWrite(HighR, HIGH);
   digitalWrite(LowR, LOW);
-  analogWrite(EnableL1, 165);
-  //analogWrite(EnableL2, 255);
-  analogWrite(EnableR1,255);
-  //analogWrite(EnableR2, 125);
+  analogWrite(EnL, 10);
+  analogWrite(EnR,255);
+
 }
-void trial(){
+
+void Right_soft(){
   digitalWrite(HighL, HIGH);
   digitalWrite(LowL, LOW);
-
   digitalWrite(HighR, HIGH);
   digitalWrite(LowR, LOW);
-  analogWrite(EnableR1,255);
-
-  analogWrite(EnableL1,255);
-  delay(150);
-   digitalWrite(HighL, LOW);
+  analogWrite(EnR,255);
+  analogWrite(EnL,255);
+      delay(1000);
+  digitalWrite(HighL, LOW);
   digitalWrite(LowL, HIGH);
-
   digitalWrite(HighR, HIGH);
   digitalWrite(LowR, LOW);
-  analogWrite(EnableR1,255);
+  analogWrite(EnR,255);
+  analogWrite(EnL,255);
+    delay(200);
 
-  analogWrite(EnableL1,255);
+ }
+
+ void Right_medium(){
+  digitalWrite(HighL, HIGH);
+  digitalWrite(LowL, LOW);
+  digitalWrite(HighR, HIGH);
+  digitalWrite(LowR, LOW);
+  analogWrite(EnR,255);
+  analogWrite(EnL,255);
+  delay(600);
+  digitalWrite(HighL, LOW);
+  digitalWrite(LowL, HIGH);
+  digitalWrite(HighR, HIGH);
+  digitalWrite(LowR, LOW);
+  analogWrite(EnR,255);
+  analogWrite(EnL,255);
+  delay(200);
+
+ }
+ void Left_soft(){
+  digitalWrite(HighL, LOW);
+  digitalWrite(LowL, HIGH);
+  digitalWrite(HighR, LOW);
+  digitalWrite(LowR, HIGH);
+  analogWrite(EnR,255);
+  analogWrite(EnL,255);
+      delay(1000);
+  digitalWrite(HighL, HIGH);
+  digitalWrite(LowL, LOW);
+  digitalWrite(HighR, LOW);
+  digitalWrite(LowR, HIGH);
+  analogWrite(EnR,255);
+  analogWrite(EnL,255);
+    delay(200);
+
+ }
+
+ void Left_medium(){
+  digitalWrite(HighL, LOW);
+  digitalWrite(LowL, HIGH);
+  digitalWrite(HighR, LOW);
+  digitalWrite(LowR, HIGH);
+  analogWrite(EnR,255);
+  analogWrite(EnL,255);
+  delay(600);
+  digitalWrite(HighL, HIGH);
+  digitalWrite(LowL, LOW);
+  digitalWrite(HighR, LOW);
+  digitalWrite(LowR, HIGH);
+  analogWrite(EnR,255);
+  analogWrite(EnL,255);
+  delay(200);
 
  }
 
@@ -96,7 +139,7 @@ void loop() {
 
   //Left();
   //Right();
-  delay(1000);
   //trial();
-  delay(1000);
+  //Right_medium();
+
 }
