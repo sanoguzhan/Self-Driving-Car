@@ -86,6 +86,7 @@
 
 
 
+// ---Copying the config file--- 
 
 geany open cv path for build
 g++ $(pkg-config opencv4 --cflags --libs) -o %e %f
@@ -94,14 +95,14 @@ g++ $(pkg-config opencv4 --cflags --libs) -o %e %f
 
 
 
-geany open cv path for build
+//---geany open cv path for build fro raspberry pi
 g++ $(pkg-config opencv4 --cflags --libs) -o %e %f
 
 
 
 
 
-installing raspicam
+//---Setting up Raspberrypi cam---
 
 git clone https://github.com/cedricve/raspicam.git
 cd raspicam
@@ -120,7 +121,7 @@ g++ $(pkg-config raspicam --cflags --libs) -o %e %f
 
 
 
-# Package Information for pkg-config
+//---Package Information for pkg-config
 
 prefix=/usr/local
 exec_prefix=${prefix}
@@ -137,7 +138,7 @@ Cflags: -I${includedir_old} -I${includedir_new}
 
 
 
-Updated Geany Path
+//---Updated Geany Path
 
 g++ $(pkg-config opencv4 --cflags --libs) -o g++ $(pkg-config raspicam --cflags --libs) -o %e %f
 
