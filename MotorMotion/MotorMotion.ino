@@ -15,6 +15,8 @@ const int D1 = 1; // Raspberry Pi pin 22
 const int D2 = 2; // Raspberry Pi pin 23
 const int D3 = 3; // Raspberry Pi pin 24
 
+int a,b,c,d,binary;
+
 void setup() {
   pinMode(EnL, OUTPUT);
   pinMode(HighL, OUTPUT);
@@ -29,86 +31,88 @@ void setup() {
   pinMode(D3, INPUT_PULLUP);
 }
 
-int a,b,c,d,data;
 
 void Data(){
-  a = digitalWrite(D0);
-  b = digitalWrite(D1);
-  c = digitalWrite(D2);
-  d = digitalWrite(D3);
+  
+  a = digitalRead(D0);
+  b = digitalRead(D1);
+  c = digitalRead(D2);
+  d = digitalRead(D3);
 
-  data = 8*d + 4*c + 2*b + a;
+  binary = 8*d + 4*c + 2*b + a;
   
   }
 //Forward 
-void Forward(){
-  digitalWrite(HighL, LOW);
-  digitalWrite(LowL, HIGH);
+void Backward(){
+  digitalWrite(HighL, HIGH);
+  digitalWrite(LowL, LOW);
   digitalWrite(HighR, HIGH);
   digitalWrite(LowR, LOW);
-  analogWrite(EnL, 255);
-  analogWrite(EnR, 255);
+  analogWrite(EnL, 250);
+  analogWrite(EnR, 250);
 
 }
 
 //Backward 
-void Backward(){
-  digitalWrite(HighL, HIGH);
-  digitalWrite(LowL, LOW);
+void Forward(){
+  digitalWrite(HighL, LOW);
+  digitalWrite(LowL, HIGH);
   digitalWrite(HighR, LOW);
   digitalWrite(LowR, HIGH);
-  analogWrite(EnL, 255);
-  analogWrite(EnR, 255);
+  analogWrite(EnL, 250);
+  analogWrite(EnR, 250);
 
 }
 
 //Left
 
-void Left(){
+void Right(){
   digitalWrite(HighL, LOW);
   digitalWrite(LowL, HIGH);
   digitalWrite(HighR, HIGH);
   digitalWrite(LowR, LOW);
-  analogWrite(EnL,255);
-  analogWrite(EnR, 10);
+  analogWrite(EnL,230);
+  analogWrite(EnR, 0);
 
 }
-void Right(){
-  digitalWrite(HighL, HIGH);
-  digitalWrite(LowL, LOW);
-  digitalWrite(HighR, HIGH);
-  digitalWrite(LowR, LOW);
-  analogWrite(EnL, 10);
-  analogWrite(EnR,255);
+void Left(){
+  digitalWrite(HighL, LOW);
+  digitalWrite(LowL, HIGH);
+  digitalWrite(HighR, LOW);
+  digitalWrite(LowR, HIGH);
+  analogWrite(EnL, 0);
+  analogWrite(EnR,230);
 
 }
 
 void Right_soft(){
-  digitalWrite(HighL, HIGH);
-  digitalWrite(LowL, LOW);
-  digitalWrite(HighR, HIGH);
-  digitalWrite(LowR, LOW);
+  digitalWrite(HighL, LOW);
+  digitalWrite(LowL, HIGH);
+  digitalWrite(HighR, LOW);
+  digitalWrite(LowR, HIGH);
   analogWrite(EnR,255);
   analogWrite(EnL,255);
-      delay(1000);
+  delay(1000);
+
   digitalWrite(HighL, LOW);
   digitalWrite(LowL, HIGH);
   digitalWrite(HighR, HIGH);
   digitalWrite(LowR, LOW);
   analogWrite(EnR,255);
   analogWrite(EnL,255);
-    delay(200);
+  delay(200);
 
  }
 
  void Right_medium(){
-  digitalWrite(HighL, HIGH);
-  digitalWrite(LowL, LOW);
-  digitalWrite(HighR, HIGH);
-  digitalWrite(LowR, LOW);
+  digitalWrite(HighL, LOW);
+  digitalWrite(LowL, HIGH);
+  digitalWrite(HighR, LOW);
+  digitalWrite(LowR, HIGH);
   analogWrite(EnR,255);
   analogWrite(EnL,255);
   delay(600);
+
   digitalWrite(HighL, LOW);
   digitalWrite(LowL, HIGH);
   digitalWrite(HighR, HIGH);
@@ -152,31 +156,36 @@ void Right_soft(){
   analogWrite(EnL,255);
   delay(200);
 
+
  }
 
 
-
 void loop() {
-  //Forward();
-  //Backward();
 
-  //Left();
-  //Right();
-  //trial();
-  //Right_medium();
-
-  if (data == 0){
+  Data();
+  if (binary == 0){
     Forward();
     }
-   if(data == 1){
+   else if(binary == 1){
     Right();
     }
-    if(data == 2){
+   else if(binary == 2){
+     Right();
+    }
+   else if(binary == 3){
     Right();
     }
-    if(data == 3){
-    Right();
+  else if(binary == 4){
+    Left();
     }
-    
+   else if(binary == 5){
+    Left();
+    }
+   else if(binary == 6){
+    Left();
+    }
+    else if(binary > 6){
+    Backward();
+    }
 
 }
