@@ -152,13 +152,105 @@ void Right_soft(){
 
  }
 
+ void Object(){
+  
+  analogWrite(EnL, 0);
+  analogWrite(EnR, 0);
+  delay(400);
+
+
+
+  digitalWrite(HighL, HIGH);
+  digitalWrite(LowL, LOW);
+  digitalWrite(HighR, LOW);    //left
+  digitalWrite(LowR, HIGH);
+  analogWrite(EnL, 255);
+  analogWrite(EnR,255);
+  delay(1100);
+  
+  analogWrite(EnL, 0);
+  analogWrite(EnR, 0);
+  delay(400);
+
+  digitalWrite(HighL, LOW);
+  digitalWrite(LowL, HIGH);
+  digitalWrite(HighR, LOW);   //Forward
+  digitalWrite(LowR, HIGH);
+  analogWrite(EnL, 250);
+  analogWrite(EnR, 250);
+  delay(1000);
+
+  digitalWrite(HighL, LOW);
+  digitalWrite(LowL, HIGH);
+  digitalWrite(HighR, HIGH);    //Right
+  digitalWrite(LowR, LOW);
+  analogWrite(EnL, 255);
+  analogWrite(EnR,255);
+  delay(1000);
+
+  analogWrite(EnL, 0);
+  analogWrite(EnR, 0);
+  delay(400);
+
+  digitalWrite(HighL, LOW);
+  digitalWrite(LowL, HIGH);
+  digitalWrite(HighR, LOW);   //Forward
+  digitalWrite(LowR, HIGH);
+  analogWrite(EnL, 250);
+  analogWrite(EnR, 250);
+  delay(1400);
+
+  analogWrite(EnL, 0); 
+  analogWrite(EnR, 0);
+  delay(400);
+
+  digitalWrite(HighL, LOW);
+  digitalWrite(LowL, HIGH);
+  digitalWrite(HighR, HIGH);    //Right
+  digitalWrite(LowR, LOW);
+  analogWrite(EnL, 255);
+  analogWrite(EnR,255);
+  delay(1400);
+
+  analogWrite(EnL, 0); 
+  analogWrite(EnR, 0);
+  delay(400);
+    digitalWrite(HighL, LOW);
+  digitalWrite(LowL, HIGH);
+  digitalWrite(HighR, LOW);   //Forward
+  digitalWrite(LowR, HIGH);
+  analogWrite(EnL, 250);
+  analogWrite(EnR, 250);
+  delay(800);
+    analogWrite(EnL, 0); 
+  analogWrite(EnR, 0);
+  delay(400);
+
+    digitalWrite(HighL, HIGH);
+  digitalWrite(LowL, LOW);
+  digitalWrite(HighR, LOW);    //left
+  digitalWrite(LowR, HIGH);
+  analogWrite(EnL, 255);
+  analogWrite(EnR,255);
+  delay(1000);
+
+  digitalWrite(HighL, LOW);
+  digitalWrite(LowL, HIGH);
+  digitalWrite(HighR, LOW);   //Forward
+  digitalWrite(LowR, HIGH);
+  analogWrite(EnL, 255);
+  analogWrite(EnR, 255);
+  delay(200);
+  
+  }
+
 void UTurn(){
   analogWrite(EnL, 0);
   analogWrite(EnR, 0);
   delay(400);
 
-  analogWrite(EnL, 255);
-  analogWrite(EnR, 255);
+  analogWrite(EnL, 250);
+  analogWrite(EnR, 250);
   delay(1700);
   
   analogWrite(EnL, 0);
@@ -171,7 +263,7 @@ void UTurn(){
   digitalWrite(LowR, HIGH);
   analogWrite(EnL, 255);
   analogWrite(EnR,255);
-  delay(1500);
+  delay(1800);
 
   analogWrite(EnL, 0);
   analogWrite(EnR, 0);
@@ -181,9 +273,9 @@ void UTurn(){
   digitalWrite(LowL, HIGH);
   digitalWrite(HighR, LOW);   //Forward
   digitalWrite(LowR, HIGH);
-  analogWrite(EnL, 255);
-  analogWrite(EnR, 255);
-  delay(800);
+  analogWrite(EnL, 250);
+  analogWrite(EnR, 250);
+  delay(900);
 
   analogWrite(EnL, 0); 
   analogWrite(EnR, 0);
@@ -194,8 +286,8 @@ void UTurn(){
   digitalWrite(HighR, LOW);    //left
   digitalWrite(LowR, HIGH);
   analogWrite(EnL, 255);
-  analogWrite(EnR,250);
-  delay(1300);
+  analogWrite(EnR,255);
+  delay(1000);
 
   analogWrite(EnL, 0); 
   analogWrite(EnR, 0);
@@ -209,7 +301,14 @@ void UTurn(){
   analogWrite(EnR, 255);
   delay(200);
   }
-
+void StopS(){
+      analogWrite(EnL, 0);
+      analogWrite(EnR, 0);
+      delay(4500);
+      analogWrite(EnL, 250);
+      analogWrite(EnR, 250);
+      delay(1000);
+      }
 void loop() {
 
 
@@ -238,7 +337,13 @@ void loop() {
     else if(binary == 7){
     UTurn();
     }
-    else if(binary > 7){
+    else if(binary == 8){
+     StopS();
+    }
+    else if(binary == 9){
+    Object();
+    }
+    else if(binary > 9){
     Stop();
     }
 
