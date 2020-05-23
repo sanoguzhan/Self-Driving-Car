@@ -135,9 +135,11 @@ The lane detection pipeline steps:
  3. Applying masking region to the image
  
   ![Clean Line in the Region of Interest](pics/line_detection.png)
+  
  4. Applying Hough transform to the image
  
   ![Transformed](pics/hough_detection.png)
+  
  5. Extrapolating the lines found in the hough transform to construct the left and right lane lines
  6. Adding the extrapolated lines to the input image
  7. Finding the center of lines for navigation
