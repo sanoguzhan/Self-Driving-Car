@@ -27,11 +27,11 @@ Futures of the car:
    * Obstacle Avoidance
    * Road Sign Recognition 
    
-   [![Youtube Video of Car](../../../Documents/DS_study/Autonomous-Car/pics/youtube_pic.png)](https://youtu.be/WiadMunX-Qo)
+   [![Youtube Video of Car](pics/youtube_pic.png)](https://youtu.be/WiadMunX-Qo)
 
 
 ##Car Parts
-   ![Car Parts](../../../Documents/DS_study/Autonomous-Car/pics/car_parts.jpeg)
+   ![Car Parts](pics/car_parts.jpeg)
    
 Here is the list of parts and their links:
    * [Raspberry Pi 4 Model B](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/)
@@ -92,7 +92,7 @@ Since there is no steering in the car, also changing directions of car achieved 
      }
 ```
 
-After defining the motion, raspberryPi connected booted and configured ([command list](../../../Documents/DS_study/Autonomous-Car/Commands%20for%20Raspberrypi.txt)) for SSH connection, C++ ide setups, Camera setups. For all image capturing and processingi OpenCV was the primary library and for any data manupulation and processing stl containers was used [Standard Template Library](https://www.geeksforgeeks.org/the-c-standard-template-library-stl/)
+After defining the motion, raspberryPi connected booted and configured ([command list](Commands%20for%20Raspberrypi.txt)) for SSH connection, C++ ide setups, Camera setups. For all image capturing and processingi OpenCV was the primary library and for any data manupulation and processing stl containers was used [Standard Template Library](https://www.geeksforgeeks.org/the-c-standard-template-library-stl/)
 * Example Code for Camera Setup and Region of Interest:
 
    ```
@@ -117,13 +117,13 @@ After defining the motion, raspberryPi connected booted and configured ([command
         warpPerspective(Frame,FramePerspective, Matrix, Size(400,240));
         }
   ``` 
-[Check Codes](../../../Documents/DS_study/Autonomous-Car/Code)
+[Check Codes](Code)
 
 ## Scheme of System and Connections
 As can be seen from the circuit scheme below, the connection between motors and arduino is made through H-Bridge in order to control the left and right motors separately. H-Bridge is connected to power supply, arduino and motors. 
-![Circuit Scheme](../../../Documents/DS_study/Autonomous-Car/pics/Circuit_scheme.png)
+![Circuit Scheme](pics/Circuit_scheme.png)
 RaspberryPi is used as master device and arduino as sleeve device so raspberry pi is connected to power supply and arduino which sends the changing signal through declared and connected pins.
-![RaspberryPi Pin Layout](../../../Documents/DS_study/Autonomous-Car/pics/rp2_pinout.png)
+![RaspberryPi Pin Layout](pics/rp2_pinout.png)
 
 
 ## Line-Detection
@@ -133,18 +133,18 @@ The lane detection pipeline steps:
  1. Pre-processing images using grayscale
  2. Applying canny edge detection to the image
  3. Applying masking region to the image
-     ![Clean Line in the Region of Interest](../../../Documents/DS_study/Autonomous-Car/pics/line_detection.png)
+     ![Clean Line in the Region of Interest](pics/line_detection.png)
  4. Applying Hough transform to the image
-    ![Transformed](../../../Documents/DS_study/Autonomous-Car/pics/hough_detection.png)
+    ![Transformed](pics/hough_detection.png)
  5. Extrapolating the lines found in the hough transform to construct the left and right lane lines
  6. Adding the extrapolated lines to the input image
  7. Finding the center of lines for navigation
- ![Processed Image](../../../Documents/DS_study/Autonomous-Car/pics/final_line.png)
+ ![Processed Image](pics/final_line.png)
     
 Final output of this process detects line and centers the car navigation in the lines. 
 Since the algorithm use the density of line in white, line density is higher in the lines end so the line ends can be detected. 
 Also car can navigate and center itself based on the positive and negative values of difference between line center and frame-center
-    ![Control Image](../../../Documents/DS_study/Autonomous-Car/pics/car_navigation.png)
+    ![Control Image](pics/car_navigation.png)
 
 ## Obstacle Avoidance and Road Sign Recognition
  
@@ -156,8 +156,8 @@ Also car can navigate and center itself based on the positive and negative value
   
   Positive  Sample               |  Negative Sample
 :-------------------------:|:-------------------------:
-![Positive Sample (with Obstacle)](../../../Documents/DS_study/Autonomous-Car/pics/Obstacle18.jpg)  |  ![Negative Sample (without Obstacle](../../../Documents/DS_study/Autonomous-Car/pics/NoStop225.jpg)
-![Positive Sample (with Stop Sign)](../../../Documents/DS_study/Autonomous-Car/pics/1578163186805.jpg)  |  ![Negative Sample (without Obstacle](../../../Documents/DS_study/Autonomous-Car/pics/NoStop253.jpg)
+![Positive Sample (with Obstacle)](pics/Obstacle18.jpg)  |  ![Negative Sample (without Obstacle](pics/NoStop225.jpg)
+![Positive Sample (with Stop Sign)](pics/1578163186805.jpg)  |  ![Negative Sample (without Obstacle](pics/NoStop253.jpg)
 
 ## Summary
 Overall, it was a great experience to start from scratch to build everything by myself. I have learnt a lot and practise a lot. What can be improved in this project is to try different Computer Vision Models with more capable devices. Becuase, even though raspberry pi is a great mini-computer, it has its limitations in the area (computational intensive processes).
