@@ -1,8 +1,8 @@
 # Autonomous Car (Mini-Prototype)
 
-Self-Driving Car with the feature of Line detection, obstacle avoidance, and obstacle recognition.  
+Self-Driving Car that implements Line detection, obstacle avoidance, and obstacle recognition features.  
 
-__Keywords__: Autonomous, [RaspberryPi](https://www.raspberrypi.org), [Arduino](https://www.arduino.cc), C/C++, [OpenCV](https://opencv.org), [Computer Vision](https://www.pcmag.com/news/what-is-computer-vision)
+__Keywords__: Autonomous, [RaspberryPi](https://www.raspberrypi.org), [Arduino](https://www.arduino.cc), C/C++, [OpenCV](https://opencv.org), [Computer Vision](https://www.pcmag.com/news/what-is-computer-vision), IoT
 
 
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT) 
@@ -23,9 +23,9 @@ Table of contents
 
 
 ## Description
-In this repository, I will share my journey of building a minimal self driving car. This project inspired by the dream of buidilding real-scale self driving car only by using cameras to make accessible for more people in the future. 
-So that, only 8 Mp Raspberry-Camera was used for real-time image processing, and no sensor used for car navigations or data gathering.The car has following future.
-Futures of the car:
+In this repository, I will share my journey of building a minimal self driving car. This project was inspired by my dream of buidilding a full-scale self driving car using only cameras to make it accessible for more people in the future. 
+To that point, only an 8 Mp Raspberry-Camera was used for real-time image processing, and no sensors were used for car navigation or data gathering.  The car has following features.
+Features of the car:
 
    * Line Detection
    * Obstacle Avoidance
@@ -51,8 +51,8 @@ Here is the list of parts and their links:
    
 ## Programming
 
-Main programming language of the project is `C++` and arduino programming(`C language`). For the image capturing and processing, as well as Computer Vision algorithms open source `OpenCV` C++ library was used.
-Firstly, Ardunio programmed and tested without any master device(in this project Raspberry Pi). The motion of the car is achieved by changing signal value (0 to 255 - 255 highest voltage). Arduino pins are declared and speed of the car for each instruction defined. 
+Main programming language of the project is `C++` and arduino programming(`C language`). For the image capturing and processing, as well as Computer Vision algorithms, the open source `OpenCV` C++ library was used.
+Firstly, the Ardunio was programmed and tested without any master device(in this project Raspberry Pi). The motion of the car is achieved by changing signal values (0 to 255 - 255 highest voltage). Arduino pins are declared and speed of the car for each instruction defined. 
 ``` 
     //Left side of Motors
     const int EnL = 5;  # Pin Numbers on Arduino
@@ -74,7 +74,7 @@ Firstly, Ardunio programmed and tested without any master device(in this project
       analogWrite(EnR, 250);
 }
 ```
-Since there is no steering in the car, also changing directions of car achieved by giving reverse voltage values on each side of car motors. Example:
+Since there is no steering in the car, steering of the car is also achieved by giving reverse voltage values on each side of car motors. Example:
 ```
     //Steering to right softly
     void Right_soft(){
@@ -96,7 +96,7 @@ Since there is no steering in the car, also changing directions of car achieved 
      }
 ```
 
-After defining the motion, raspberryPi connected booted and configured ([command list](Commands%20for%20Raspberrypi.txt)) for SSH connection, C++ ide setups, Camera setups. For all image capturing and processingi OpenCV was the primary library and for any data manupulation and processing stl containers was used [Standard Template Library](https://www.geeksforgeeks.org/the-c-standard-template-library-stl/)
+After defining the motion, raspberryPi was connected booted and configured ([command list](Commands%20for%20Raspberrypi.txt)) for SSH connection, C++ ide setups and Camera setups. For all image capturing and processingi OpenCV was the primary library and for any data manupulation and processing stl containers was used [Standard Template Library](https://www.geeksforgeeks.org/the-c-standard-template-library-stl/)
 * Example Code for Camera Setup and Region of Interest:
 
    ```
@@ -121,12 +121,12 @@ After defining the motion, raspberryPi connected booted and configured ([command
         warpPerspective(Frame,FramePerspective, Matrix, Size(400,240));
         }
   ``` 
-[Check Codes](Code)
+[Check Code](Code)
 
 ## Scheme of System and Connections
-As can be seen from the circuit scheme below, the connection between motors and arduino is made through H-Bridge in order to control the left and right motors separately. H-Bridge is connected to power supply, arduino and motors. 
+As can be seen from the circuit schemematic below, the connection between motors and arduino is made through an H-Bridge in order to control the left and right motors separately. H-Bridge is connected to the power supply, arduino and motors. 
 ![Circuit Scheme](pics/Circuit_scheme.png)
-RaspberryPi is used as master device and arduino as sleeve device so raspberry pi is connected to power supply and arduino which sends the changing signal through declared and connected pins.
+The RaspberryPi is used as master device and the arduino as a sleeve device, so the Raspberry Pi is connected to the power supply and arduino which sends the changing signal through declared and connected pins.
 ![RaspberryPi Pin Layout](pics/rp2_pinout.png)
 
 
@@ -150,8 +150,8 @@ The lane detection pipeline steps:
   ![Processed Image](pics/final_line.png)
     
 Final output of this process detects line and centers the car navigation in the lines. 
-Since the algorithm use the density of line in white, line density is higher in the lines end so the line ends can be detected. 
-Also car can navigate and center itself based on the positive and negative values of difference between line center and frame-center
+Since the algorithm uses the density of lines in white, line density is higher in the lines end, so the line ends can be detected. 
+Also the car can navigate and center itself based on the positive and negative values of difference between line center and frame-center
     ![Control Image](pics/car_navigation.png)
 
 ## Obstacle Avoidance and Road Sign Recognition
@@ -160,7 +160,7 @@ Also car can navigate and center itself based on the positive and negative value
     * Cascade Classifier: Object Detection using Haar feature-based cascade classifiers is an effective object detection method proposed by Paul Viola and Michael Jones in their paper, “Rapid Object Detection using a Boosted Cascade of Simple Features” in 2001. It is a machine learning based approach where a cascade function is trained from a lot of positive and negative images. 
         It is then used to detect objects in other images. [For more information](https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_objdetect/py_face_detection/py_face_detection.html)
   
-  Model trained with 50 positive (from different angles) and 300 negative images of route. Image size was chosen 42x32 and OpenCV library was used.
+  Model was trained with 50 positive (from different angles) and 300 negative images of route. Image size was chosen to be 42x32 and OpenCV library was used.
   
   Positive  Sample               |  Negative Sample
 :-------------------------:|:-------------------------:
@@ -168,7 +168,7 @@ Also car can navigate and center itself based on the positive and negative value
 ![Positive Sample (with Stop Sign)](pics/1578163186805.jpg)  |  ![Negative Sample (without Obstacle](pics/NoStop253.jpg)
 
 ## Summary
-Overall, it was a great experience to start from scratch to build everything by myself. I have learned a lot and practiced a lot. What can be improved in this project is to try different Computer Vision Models with more capable devices. Because, even though raspberry pi is a great mini-computer, it has its limitations in the area (computational intensive processes).
+Overall, it was a great experience to start from scratch and build everything by myself. I have learned a lot and practiced a lot. What can be improved in this project is to try different Computer Vision Models with more capable devices. Because, even though raspberry pi is a great mini-computer, it has its limitations in the area (computationaly intensive processes).
 
 
 
