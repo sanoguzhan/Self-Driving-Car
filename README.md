@@ -1,4 +1,4 @@
-#Autonomous Car (Mini-Prototype)
+# Autonomous Car (Mini-Prototype)
 
 Self-Driving Car with the feature of Line detection, obstacle avoidance, and obstacle recognition.  
 
@@ -22,7 +22,7 @@ Table of contents
 
 
 
-##Description
+## Description
 In this repository, I will share my journey of building a minimal self driving car. This project inspired by the dream of buidilding real-scale self driving car only by using cameras to make accessible for more people in the future. 
 So that, only 8 Mp Raspberry-Camera was used for real-time image processing, and no sensor used for car navigations or data gathering.The car has following future.
 Futures of the car:
@@ -34,7 +34,7 @@ Futures of the car:
    [![Youtube Video of Car](pics/youtube_pic.png)](https://youtu.be/WiadMunX-Qo)
 
 
-##Car Parts
+## Car Parts
    ![Car Parts](pics/car_parts.jpeg)
    
 Here is the list of parts and their links:
