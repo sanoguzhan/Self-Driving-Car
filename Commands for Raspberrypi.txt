@@ -92,7 +92,7 @@ geany open cv path for build
 g++ $(pkg-config opencv4 --cflags --libs) -o %e %f
 
 
-
+g++ $(pkg-config opencv4 --cflags --libs) -o g++ $(pkg-config raspicam --cflags --libs) -o %e %f
 
 
 //---geany open cv path for build fro raspberry pi
@@ -144,4 +144,4 @@ g++ $(pkg-config opencv4 --cflags --libs) -o g++ $(pkg-config raspicam --cflags 
 
 
 
-
+g++ $(pkg-config opencv4 --cflags --libs) -o g++ $(pkg-config raspicam --cflags --libs) -o g++ $(pkg-config wiringpi --cflags --libs)-o %e %f
