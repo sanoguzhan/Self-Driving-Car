@@ -4,7 +4,9 @@ Self-Driving Car with the feature of Line detection, obstacle avoidance, and obs
 
 __Keywords__: Autonomous, [RaspberryPi](https://www.raspberrypi.org), [Arduino](https://www.arduino.cc), C/C++, [OpenCV](https://opencv.org), [Computer Vision](https://www.pcmag.com/news/what-is-computer-vision)
 
+
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT) 
+
 
 Table of contents
 =================
@@ -166,7 +168,11 @@ Also car can navigate and center itself based on the positive and negative value
 ![Positive Sample (with Stop Sign)](pics/1578163186805.jpg)  |  ![Negative Sample (without Obstacle](pics/NoStop253.jpg)
 
 ## Summary
-Overall, it was a great experience to start from scratch to build everything by myself. I have learnt a lot and practise a lot. What can be improved in this project is to try different Computer Vision Models with more capable devices. Becuase, even though raspberry pi is a great mini-computer, it has its limitations in the area (computational intensive processes).
+Overall, it was a great experience to start from scratch to build everything by myself. I have learned a lot and practiced a lot. What can be improved in this project is to try different Computer Vision Models with more capable devices. Because, even though raspberry pi is a great mini-computer, it has its limitations in the area (computational intensive processes).
+
+
+
+
 
 
 
