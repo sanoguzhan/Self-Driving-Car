@@ -2,7 +2,7 @@
 
 Self-Driving Car that implements Line detection, obstacle avoidance, and obstacle recognition features.  
 
-__Keywords__: Autonomous, [RaspberryPi](https://www.raspberrypi.org), [Arduino](https://www.arduino.cc), C/C++, [OpenCV](https://opencv.org), [Computer Vision](https://www.pcmag.com/news/what-is-computer-vision), IoT
+__Keywords__: Self-Driven, [RaspberryPi](https://www.raspberrypi.org), [Arduino](https://www.arduino.cc), C/C++, [OpenCV](https://opencv.org), [Computer Vision](https://www.pcmag.com/news/what-is-computer-vision), IoT
 
 
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT) 
