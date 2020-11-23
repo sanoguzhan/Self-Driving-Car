@@ -1,4 +1,4 @@
-# Autonomous Car (Mini-Prototype)
+# Self-Driving Car
 
 Self-Driving Car that implements Line detection, obstacle avoidance, and obstacle recognition features.  
 
